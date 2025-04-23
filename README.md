@@ -1,1 +1,10 @@
-# Predicting-Porfolio-Volatility
+# Predicting-Porfolio-Volatility (work in progress)
+The Efficient Market Hypothesis (EMH) posits that all available information is already reflected in current market prices, which would, in theory, limit the potential for consistently forecasting future movements. Nevertheless, in practice, both financial professionals and researchers continue to seek patterns that might enable probabilistic forecasting beyond random chance. A wide array of tools—especially technical and fundamental indicators—are commonly used among non-academic retail investors, yet the empirical evidence supporting their predictive power is limited or inexistent. Still, it is reasonable to assume that certain factors do influence market dynamics, and when correctly identified and modeled, they may allow for useful forecasts of market trends or investment risk.
+
+This underlying possibility has driven the widespread adoption of machine learning techniques in finance. Today, financial institutions and fintech companies actively leverage machine learning models to build their investment strategies. One of the central challenges lies in predicting returns, which tends to be highly unstable and prone to overfitting. In contrast, volatility appears to exhibit greater predictability, partly due to stylized facts such as volatility clustering, which deviates from the assumptions of a simple random walk. This has led to the development and successful application of time series models such as ARCH/GARCH and their extensions.
+
+Beyond individual asset forecasts, machine learning models can also support portfolio construction and risk management. Predicting how assets move together and how overall portfolio risk changes over time is essential for adjusting positions and avoiding unexpected losses.
+
+This notebook introduces a basic framework for building machine learning models to forecast volatility. The goal is to provide useful tools for exploring, training, and evaluating predictive models that can be applied to real market data.
+
+This notebook is a work in progress.
