@@ -1,0 +1,92 @@
+{
+  "protocol": {
+    "all_baselines_reported": [
+      "trailing_volatility",
+      "train_mean"
+    ],
+    "config": {
+      "baselines": [
+        "trailing_volatility",
+        "train_mean"
+      ],
+      "experiment_id": "synthetic-demo",
+      "feature_lags": [
+        1,
+        2,
+        5
+      ],
+      "feature_windows": [
+        5,
+        10,
+        21
+      ],
+      "features": null,
+      "final_test_size": 126,
+      "final_validation_size": 126,
+      "horizon": 10,
+      "inner_folds": 3,
+      "model": "ridge",
+      "previously_observed_through": null,
+      "purge_extra_days": 0,
+      "purge_policy": "label_end_strict",
+      "purpose": "synthetic_demo",
+      "rolling_test_size": 63,
+      "rolling_train_size": 252,
+      "rolling_validation_size": 63,
+      "rolling_windows": 3,
+      "seed": 42,
+      "selection_note": "Fixed illustrative variance regimes and predeclared model grid; synthetic errors are not market evidence.",
+      "test_start": null,
+      "validation_start": null
+    },
+    "data_metadata": {
+      "availability_evidence": "Constructed fixture: each artificial price is available five minutes before its forecast origin.",
+      "currency": "SYNTHETIC_UNITS",
+      "data_kind": "synthetic",
+      "generator": "v1",
+      "license": "Generated locally; see project licensing notice.",
+      "n": 900,
+      "price_adjustment": "synthetic",
+      "redistribution": "No third-party market dataset is used.",
+      "retrieved_at": null,
+      "schema_version": 1,
+      "seed": 42,
+      "source_url": "generated:predicting_volatility_data.synthetic_prices/v1",
+      "symbol": "SYNTHETIC"
+    },
+    "eligible_samples": 869,
+    "feature_availability_rule": "all input prices available at or before forecast timestamp; causal price features only",
+    "feature_names": [
+      "return_1obs",
+      "return_5obs",
+      "volatility_5obs",
+      "return_10obs",
+      "volatility_10obs",
+      "return_21obs",
+      "volatility_21obs",
+      "squared_return_lag_1",
+      "squared_return_lag_2",
+      "squared_return_lag_5",
+      "distance_to_ma21"
+    ],
+    "holdout_status": "synthetic",
+    "input_sha256": "28dafd420b0d134612d981d4c76f28ccbc762fb30023c6b81067c4e02bc0bf87",
+    "prediction_convention": "after_close",
+    "price_rows": 900,
+    "project_version": "0.2.0",
+    "rolling_windows": 3,
+    "schema_version": 1,
+    "source_code_sha256": {
+      "predicting_volatility_data.py": "77c9f5912835416b69f329c3481178dc441e8a77ff1b0c1626597e2d00e71209",
+      "predicting_volatility_experiment.py": "8aa48c418b5131075ef51da13187d86c80bd769f5f78bd4b9ec84b3a1d975f4a",
+      "predicting_volatility_temporal.py": "ad1f87a0de55988bd877cb09e819e6644fb3aab110ad8405159b2520c60922b5"
+    },
+    "target_unit": "simple-return fraction per observation; sample std ddof=1",
+    "test_last_label_price": "2003-06-13T00:00:00+00:00",
+    "test_last_prediction": "2003-05-30T00:00:00+00:00",
+    "test_start": "2002-12-06T00:00:00+00:00",
+    "validation_start": "2002-06-13T00:00:00+00:00"
+  },
+  "plan_id": "3bc616776ed90a830ee3942e2759831a6ef14b36c9a5a600b0312c43afd14d22",
+  "planned_at_utc": "2026-10-31T01:21:13.801871+00:00"
+}

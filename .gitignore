@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*.pkl
+*.pickle
+*.env
+.env*
+!.env.example
+.venv*/
+.release*/
+build/
+dist/
+*.egg-info/
+runs/
+plans/
+data/local/
+.matplotlib/
+# Retired files remain available locally but are not part of this release.
+data_fetcher.py
+financial_instruments.py
+links_indices.json
+sweetviz_report.html
+predicting_volatility_validate.py

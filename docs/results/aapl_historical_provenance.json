@@ -1,0 +1,49 @@
+{
+  "ticker": "AAPL",
+  "horizon_observations": 10,
+  "price_sample_start": "2018-10-24 00:00:00",
+  "price_sample_end": "2025-03-07 00:00:00",
+  "price_rows": 1600,
+  "eligible_samples": 1569,
+  "features": [
+    "return_1obs",
+    "return_5obs",
+    "volatility_5obs",
+    "return_10obs",
+    "volatility_10obs",
+    "return_21obs",
+    "volatility_21obs",
+    "squared_return_lag_1",
+    "squared_return_lag_2",
+    "squared_return_lag_5",
+    "distance_to_ma21"
+  ],
+  "best_parameters": {
+    "model__max_depth": 1,
+    "select__k": "all"
+  },
+  "test_start": "2024-02-21 00:00:00",
+  "test_last_prediction": "2025-02-21 00:00:00",
+  "test_n": 252,
+  "test_model_rmse": 0.005360725749451521,
+  "test_trailing_volatility_rmse": 0.007103104787457315,
+  "relative_rmse_change_percent": -24.52982308641276,
+  "study_date": "2026-10-29",
+  "presentation_date": "2026-10-30",
+  "source": "Yahoo Finance via pre-existing yfinance cache",
+  "source_url": "https://ranaroussi.github.io/yfinance/",
+  "source_publication_date": null,
+  "retrieved_at": null,
+  "currency": "USD (Yahoo AAPL convention; original cache metadata not certified)",
+  "price_adjustment": "unknown",
+  "redistribution_license": "not verified; raw cache excluded",
+  "raw_input_sha256": "a78aed3289fec3714ab2e7e89e5090de0d2490c4f1831536933b0d6ebecc2fd9",
+  "original_study_source_sha256": "cb78cbf1ba92194cfc1016d7e7d92b5351922301c7f5d5caa6fe01ba035cdac1",
+  "holdout_status": "already_seen",
+  "retuned_for_this_release": false,
+  "metrics_unit": "return fraction per observation",
+  "source_metric_files_sha256": {
+    "final_metrics.csv": "b5e2746ba15756069318badbe1e03e677e39fcd685f5068c23c8da2ba6547675",
+    "rolling_metrics.csv": "9b632f09dcf861029b43605a38064a7e20424d6d8209c5d7c91d67faeff131b7"
+  }
+}

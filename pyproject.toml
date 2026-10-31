@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=78", "wheel>=0.45"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "temporal-volatility-lab"
+version = "0.2.0"
+description = "Reproducible volatility forecasting with label-aware temporal validation"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{name = "ftrupp"}]
+dependencies = ["numpy>=2.0,<3", "pandas>=2.2,<3", "scikit-learn>=1.5,<2"]
+classifiers = ["Development Status :: 3 - Alpha", "Intended Audience :: Science/Research", "Programming Language :: Python :: 3", "Topic :: Scientific/Engineering :: Information Analysis", "Private :: Do Not Upload"]
+
+[project.optional-dependencies]
+xgboost = ["xgboost>=3.0,<4"]
+plots = ["matplotlib>=3.9,<4"]
+notebook = ["matplotlib>=3.9,<4", "ipython>=8,<10", "nbformat>=5.10,<6", "ipykernel>=6,<7"]
+dev = ["nbformat>=5.10,<6", "matplotlib>=3.9,<4", "ipython>=8,<10", "build>=1.2,<2"]
+
+[project.scripts]
+volatility-lab = "predicting_volatility_cli:main"
+
+[project.urls]
+Repository = "https://github.com/ftrupp/Predicting-Porfolio-Volatility"
+
+[tool.setuptools]
+py-modules = ["predicting_volatility_temporal", "predicting_volatility_data", "predicting_volatility_experiment", "predicting_volatility_cli"]

@@ -1,0 +1,14 @@
+include README.md pyproject.toml .gitattributes .gitignore
+include volatility_prediction.ipynb requirements-reproducible.txt
+include predicting_volatility_*.py
+exclude predicting_volatility_validate.py
+recursive-include docs *.md *.csv *.json *.png
+recursive-include examples *.json
+recursive-include tests test_*.py
+recursive-include scripts *.py
+recursive-exclude * __pycache__ *.pyc *.pkl *.pickle *.env
+prune .ipynb_checkpoints
+prune runs
+prune data
+prune build
+prune dist

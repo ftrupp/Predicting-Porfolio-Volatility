@@ -1,0 +1,21 @@
+{
+  "experiment_id": "synthetic-demo",
+  "purpose": "synthetic_demo",
+  "selection_note": "Fixed illustrative variance regimes and predeclared model grid; synthetic errors are not market evidence.",
+  "horizon": 10,
+  "seed": 42,
+  "model": "ridge",
+  "inner_folds": 3,
+  "feature_windows": [5, 10, 21],
+  "feature_lags": [1, 2, 5],
+  "features": null,
+  "baselines": ["trailing_volatility", "train_mean"],
+  "purge_policy": "label_end_strict",
+  "purge_extra_days": 0,
+  "final_validation_size": 126,
+  "final_test_size": 126,
+  "rolling_train_size": 252,
+  "rolling_validation_size": 63,
+  "rolling_test_size": 63,
+  "rolling_windows": 3
+}

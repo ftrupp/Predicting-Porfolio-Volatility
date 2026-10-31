@@ -1,0 +1,8 @@
+# Versions used to validate the 0.2.0 release on Python 3.11.
+# This is a direct-dependency snapshot, not a fully resolved cross-platform lock.
+numpy==2.0.1
+pandas==2.3.1
+scikit-learn==1.7.1
+xgboost==3.0.3
+matplotlib==3.10.0
+nbformat==5.10.4
