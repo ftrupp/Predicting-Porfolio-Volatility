@@ -115,6 +115,9 @@ features, missing data, availability, plan integrity, deterministic outputs and
 test-label isolation. The validator blocks network during tests and notebook
 execution. The scanner checks staged Git content; stage only reviewed files.
 
+A fresh IPython process also verifies that the plot displays as a PNG, keeps the
+notebook's backend and does not appear twice. CLI PNG export is tested separately.
+
 `requirements-reproducible.txt` records validated direct versions, not a complete
 cross-platform lock. Figures and documentation can be rebuilt without a market
 cache. No publication workflow, CI schedule or financial automation is installed.

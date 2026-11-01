@@ -133,6 +133,40 @@ class ProtocolTests(unittest.TestCase):
 
 
 class ArtifactAndCLITests(unittest.TestCase):
+    def test_plot_displays_png_in_fresh_ipython_and_still_saves_files(self):
+        # Do not import pyplot first: that would hide the fresh-notebook bug.
+        code = r'''
+import base64
+import os
+from pathlib import Path
+import sys
+os.environ["MPLBACKEND"] = "module://matplotlib_inline.backend_inline"
+os.environ["MPLCONFIGDIR"] = str(Path(sys.argv[1]) / "matplotlib")
+os.environ["IPYTHONDIR"] = str(Path(sys.argv[1]) / "ipython")
+from IPython.core.interactiveshell import InteractiveShell
+shell = InteractiveShell.instance()
+import pandas as pd
+from predicting_volatility_experiment import plot_final
+frame = pd.DataFrame({"observed": [0.01, 0.02, 0.015], "model": [0.012, 0.018, 0.016], "trailing_volatility": [0.011, 0.019, 0.014], "train_mean": [0.015] * 3}, index=pd.date_range("2020-01-01", periods=3))
+result = {"evaluations": {"final": {"test_predictions": frame}}, "plan": {"protocol": {"data_metadata": {"data_kind": "synthetic"}}}}
+figure = plot_final(result)
+payload, _ = shell.display_formatter.format(figure)
+assert "image/png" in payload, "Fresh notebook displayed figure text instead of an image"
+assert base64.b64decode(payload["image/png"]).startswith(b"\x89PNG\r\n\x1a\n")
+import matplotlib
+import matplotlib.pyplot as plt
+assert "inline" in matplotlib.get_backend()
+assert not plt.get_fignums(), "Explicit display must not also leave a duplicate auto-display"
+image = Path(sys.argv[1]) / "saved.png"
+plot_final(result, image)
+assert image.read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
+assert "inline" in matplotlib.get_backend(), "Saving a file must preserve the notebook backend"
+assert not plt.get_fignums()
+'''
+        with scratch_directory() as temp:
+            result = subprocess.run([sys.executable, "-B", "-c", code, temp], cwd=Path(__file__).resolve().parents[1], capture_output=True, text=True, timeout=45)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_public_modules_import_without_network_or_file_writes(self):
         code = '''
 import builtins, socket
@@ -193,7 +227,10 @@ with patch.object(socket.socket, "connect", blocked), patch.object(socket, "crea
             plan = folder / "plan.json"
             common = ["--config", str(config), "--rows", "300", "--plan", str(plan)]
             self.assertEqual(main(["plan", *common]), 0)
-            self.assertEqual(main(["run", *common, "--output", str(folder / "runs")]), 0)
+            self.assertEqual(main(["run", *common, "--output", str(folder / "runs"), "--plot"]), 0)
+            images = list((folder / "runs").glob("*/final_holdout.png"))
+            self.assertEqual(len(images), 1)
+            self.assertTrue(images[0].read_bytes().startswith(b"\x89PNG\r\n\x1a\n"))
             with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as caught:
                 main(["run", *common, "--output", str(folder / "runs")])
             self.assertEqual(caught.exception.code, 2)

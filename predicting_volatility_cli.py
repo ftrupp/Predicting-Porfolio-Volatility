@@ -43,6 +43,9 @@ def main(argv=None):
         destination = args.output / f"{config.experiment_id}--{plan['plan_id'][:12]}"
         if destination.exists():
             raise FileExistsError("This exact run already exists; choose another output parent to reproduce it")
+        if args.plot:
+            import matplotlib
+            matplotlib.use("Agg")  # CLI file rendering must not open a GUI.
         result = run_experiment(prices, config, plan)
         destination = write_run(result, args.output, include_plot=args.plot)
         print(result["tables"]["metrics"].to_string(index=False))

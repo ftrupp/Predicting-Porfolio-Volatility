@@ -185,8 +185,7 @@ def run_experiment(prices: PriceInput, config: ExperimentConfig, plan=None):
 
 
 def plot_final(result, path=None):
-    import matplotlib
-    matplotlib.use("Agg")
+    """Return a figure for explicit display/save, preserving the caller's backend."""
     import matplotlib.pyplot as plt
     frame = result["evaluations"]["final"]["test_predictions"]
     ax = (100 * frame[["observed", "model", "trailing_volatility", "train_mean"]]).plot(figsize=(11, 4), linewidth=1.3)
@@ -197,7 +196,8 @@ def plot_final(result, path=None):
     figure = ax.figure
     if path is not None:
         figure.savefig(path, dpi=140)
-        plt.close(figure)
+    # The returned Figure remains displayable; avoid a second inline auto-display.
+    plt.close(figure)
     return figure
 
 

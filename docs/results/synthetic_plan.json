@@ -78,7 +78,7 @@
     "schema_version": 1,
     "source_code_sha256": {
       "predicting_volatility_data.py": "77c9f5912835416b69f329c3481178dc441e8a77ff1b0c1626597e2d00e71209",
-      "predicting_volatility_experiment.py": "8aa48c418b5131075ef51da13187d86c80bd769f5f78bd4b9ec84b3a1d975f4a",
+      "predicting_volatility_experiment.py": "fce96fc2f77cce50201f2ff32229487cdd4e093d9aa46c8f9c099ecec97a682d",
       "predicting_volatility_temporal.py": "ad1f87a0de55988bd877cb09e819e6644fb3aab110ad8405159b2520c60922b5"
     },
     "target_unit": "simple-return fraction per observation; sample std ddof=1",
@@ -87,6 +87,6 @@
     "test_start": "2002-12-06T00:00:00+00:00",
     "validation_start": "2002-06-13T00:00:00+00:00"
   },
-  "plan_id": "3bc616776ed90a830ee3942e2759831a6ef14b36c9a5a600b0312c43afd14d22",
-  "planned_at_utc": "2026-10-31T01:21:13.801871+00:00"
+  "plan_id": "6d481595dfda69cadb361b68ce1c3464f47d4d3cb719a2cba32cf8e71b3e568a",
+  "planned_at_utc": "2026-11-01T01:53:50.680010+00:00"
 }
